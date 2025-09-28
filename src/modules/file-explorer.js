@@ -78,9 +78,6 @@ function render(container) {
   windowDiv.appendChild(liveRegion);
 
   container.appendChild(windowDiv);
-
-  // Add drag-drop event listeners
-  setupDragDrop();
 }
 
 function updateBreadcrumbs(container) {
@@ -132,8 +129,6 @@ function renderContent(container) {
   items.forEach((item) => {
     const card = createElement("div", {
       className: `content-card ${item.type}`,
-      draggable: true,
-      ondragstart: (e) => handleDragStart(e, item, currentPath),
       ondblclick: () =>
         item.type === "folder"
           ? navigateTo([...currentPath, item.name])
@@ -227,33 +222,6 @@ function openFile(file) {
   } else if (file.name === "ascend.exe") {
     window.dispatchEvent(new CustomEvent("ascend"));
   }
-}
-
-function handleDragStart(e, item, path) {
-  e.dataTransfer.setData("application/json", JSON.stringify({ item, path }));
-  e.dataTransfer.effectAllowed = "move";
-}
-
-function setupDragDrop() {
-  // Add drop zones to folders in content
-  document.querySelectorAll(".content-card.folder").forEach((el) => {
-    el.ondragover = (e) => {
-      e.preventDefault();
-      e.dataTransfer.dropEffect = "move";
-      el.classList.add("drop-target");
-    };
-    el.ondragleave = (e) => {
-      el.classList.remove("drop-target");
-    };
-    el.ondrop = (e) => {
-      e.preventDefault();
-      el.classList.remove("drop-target");
-      const data = JSON.parse(e.dataTransfer.getData("application/json"));
-      // Move item to this folder
-      // In a real implementation, update the tree structure
-      console.log("Move", data.item.name, "to", el.textContent);
-    };
-  });
 }
 
 function handleEvent(event) {

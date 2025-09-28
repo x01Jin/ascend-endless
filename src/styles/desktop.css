@@ -1,39 +1,7 @@
 /* Material Design 3 Dark Theme - Desktop Styles */
 /* Complete redesign with modern dark mode, responsive design, and accessibility */
 
-/* Import Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
-/* CSS Custom Properties for Material Design 3 Dark Palette */
-:root {
-  --md-sys-color-primary: #6750a4;
-  --md-sys-color-on-primary: #ffffff;
-  --md-sys-color-primary-container: #eaddff;
-  --md-sys-color-on-primary-container: #21005d;
-  --md-sys-color-secondary: #958da5;
-  --md-sys-color-on-secondary: #ffffff;
-  --md-sys-color-secondary-container: #2d2f42;
-  --md-sys-color-on-secondary-container: #e2dfff;
-  --md-sys-color-surface: #1c1b1f;
-  --md-sys-color-on-surface: #e6e1e5;
-  --md-sys-color-surface-variant: #49454f;
-  --md-sys-color-on-surface-variant: #cac4d0;
-  --md-sys-color-background: #0f0f0f;
-  --md-sys-color-on-background: #e6e1e5;
-  --md-sys-color-outline: #938f99;
-  --md-sys-color-error: #f2b8b5;
-  --md-sys-color-on-error: #601410;
-
-  /* Typography */
-  --md-ref-typeface-brand: "Inter", sans-serif;
-  --md-ref-typeface-plain: "Inter", sans-serif;
-
-  /* Motion */
-  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
-  --md-sys-motion-duration-short2: 100ms;
-  --md-sys-motion-duration-short3: 150ms;
-  --md-sys-motion-duration-short4: 200ms;
-}
+@import "variables.css";
 
 /* Global Styles */
 * {
@@ -53,27 +21,20 @@ body {
   line-height: 1.5;
 }
 
-/* Desktop Container */
-.desktop {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 24px;
-  padding: 24px;
-  background: linear-gradient(
-    135deg,
-    var(--md-sys-color-background) 0%,
-    #1a1a1a 50%,
-    #2a2a2a 100%
-  );
+/* Wallpaper */
+.wallpaper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 /* Desktop Icon Grid */
 .desktop-icon-grid {
   display: grid;
+  position: relative;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 32px;
   justify-items: center;
@@ -81,13 +42,13 @@ body {
   padding: 48px;
   max-width: 800px;
   margin: 0 auto;
+  z-index: 2;
 }
 
 /* Desktop Icons */
 .desktop-icon {
   width: 88px;
   height: 88px;
-  background-color: var(--md-sys-color-surface);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -98,10 +59,9 @@ body {
     var(--md-sys-motion-easing-standard);
   font-size: 12px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--md-sys-color-outline);
   position: relative;
   overflow: hidden;
+  padding-bottom: 8px;
 }
 
 /* Floating Icon Animation */
@@ -123,30 +83,13 @@ body {
   animation-play-state: paused;
 }
 
-.desktop-icon::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    transparent 50%
-  );
-  opacity: 0;
-  transition: opacity var(--md-sys-motion-duration-short3);
+.desktop-icon i {
+  font-size: 48px;
 }
 
 .desktop-icon:hover {
-  background-color: var(--md-sys-color-surface-variant);
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.desktop-icon:hover::before {
-  opacity: 1;
 }
 
 .desktop-icon:focus {
@@ -177,7 +120,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 24px;
-  z-index: 5;
+  z-index: 3;
   border-top: 1px solid var(--md-sys-color-outline);
   box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
   border-radius: 16px 16px 0 0;
@@ -193,35 +136,6 @@ body {
   font-family: "Roboto Mono", monospace;
   color: var(--md-sys-color-on-surface);
   margin: 0 16px;
-}
-
-.start-button {
-  width: 48px;
-  height: 48px;
-  background-color: var(--md-sys-color-primary);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--md-sys-motion-duration-short3)
-    var(--md-sys-motion-easing-standard);
-  border: none;
-  color: var(--md-sys-color-on-primary);
-}
-
-.start-button:hover {
-  background-color: var(--md-sys-color-primary-container);
-  transform: scale(1.05);
-}
-
-.start-button:focus {
-  outline: 2px solid var(--md-sys-color-outline);
-  outline-offset: 2px;
-}
-
-.start-button:active {
-  transform: scale(0.95);
 }
 
 .start-icon {
@@ -254,13 +168,6 @@ body {
   transform: scale(0.95);
 }
 
-.clock {
-  color: var(--md-sys-color-on-surface);
-  font-size: 14px;
-  font-weight: 500;
-  font-family: "Roboto Mono", monospace;
-}
-
 .system-tray {
   display: flex;
   gap: 12px;
@@ -271,124 +178,6 @@ body {
   font-size: 16px;
   color: var(--md-sys-color-on-surface);
   opacity: 0.8;
-}
-
-/* Desktop Achievement */
-.desktop-achievement {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--md-sys-color-on-background);
-  text-align: center;
-  padding: 24px;
-}
-
-/* Windows */
-.window {
-  position: fixed;
-  top: 80px;
-  left: 80px;
-  width: 640px;
-  height: 480px;
-  background-color: var(--md-sys-color-surface);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(20px);
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-  border: 1px solid var(--md-sys-color-outline);
-  animation: window-enter var(--md-sys-motion-duration-short4)
-    var(--md-sys-motion-easing-standard);
-}
-
-@keyframes window-enter {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.title-bar {
-  height: 48px;
-  background-color: var(--md-sys-color-surface-variant);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 16px;
-  border-radius: 16px 16px 0 0;
-  cursor: move;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--md-sys-color-outline);
-}
-
-.title-bar h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--md-sys-color-on-surface);
-}
-
-.window-controls {
-  display: flex;
-  gap: 8px;
-}
-
-.min-btn,
-.max-btn,
-.close-btn {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all var(--md-sys-motion-duration-short2)
-    var(--md-sys-motion-easing-standard);
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-}
-
-.min-btn {
-  background-color: #ffcc02;
-}
-
-.min-btn:hover {
-  background-color: #e6b800;
-  transform: scale(1.1);
-}
-
-.max-btn {
-  background-color: #00cc44;
-}
-
-.max-btn:hover {
-  background-color: #00b33c;
-  transform: scale(1.1);
-}
-
-.close-btn {
-  background-color: #cc0000;
-}
-
-.close-btn:hover {
-  background-color: #aa0000;
-  transform: scale(1.1);
-}
-
-.window-content {
-  flex: 1;
-  padding: 24px;
-  overflow: auto;
-  color: var(--md-sys-color-on-surface);
 }
 
 /* Buttons */
@@ -444,74 +233,6 @@ button:active {
   box-shadow: 0 2px 4px rgba(103, 80, 164, 0.3);
 }
 
-/* Responsive Design with Bootstrap Utilities */
-@media (max-width: 768px) {
-  .desktop {
-    padding: 16px;
-    gap: 16px;
-  }
-
-  .desktop-icon {
-    width: 72px;
-    height: 72px;
-    font-size: 10px;
-  }
-
-  .desktop-icon img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .window {
-    width: 90vw;
-    height: 80vh;
-    top: 10vh;
-    left: 5vw;
-  }
-
-  .taskbar {
-    height: 48px;
-    padding: 0 16px;
-  }
-
-  .start-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 576px) {
-  .desktop {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .desktop-icon {
-    width: 64px;
-    height: 64px;
-  }
-
-  .window {
-    width: 95vw;
-    height: 85vh;
-    top: 5vh;
-    left: 2.5vw;
-  }
-
-  .taskbar {
-    height: 44px;
-    padding: 0 12px;
-  }
-
-  .start-icon {
-    width: 28px;
-    height: 28px;
-    font-size: 18px;
-  }
-}
-
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
   :root {
@@ -538,7 +259,6 @@ button:active {
 
 /* Focus Management for Accessibility */
 .desktop-icon:focus-visible,
-.start-button:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;

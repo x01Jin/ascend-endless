@@ -4,6 +4,7 @@
 // Maintains event-driven architecture with custom events and preserves core functionality.
 
 import { createDiv } from "./ui.js";
+import { createWallpaper } from "./wallpaper.js";
 
 let isQuit = false;
 let container = null;
@@ -18,26 +19,6 @@ const desktopIcons = [
     action: () => window.dispatchEvent(new CustomEvent("openExplorer")),
     tooltip: "Open File Explorer",
   },
-  /**
-   * {
-   *   name: "Text Editor",
-   *   icon: "fa-file-alt",
-   *   action: () => window.dispatchEvent(new CustomEvent("openTextEditor")),
-   *   tooltip: "Open Text Editor",
-   * },
-   * {
-   *   name: "Settings",
-   *   icon: "fa-cog",
-   *   action: () => window.dispatchEvent(new CustomEvent("openSettings")),
-   *   tooltip: "Open Settings",
-   * },
-   * {
-   *   name: "Recycle Bin",
-   *   icon: "fa-trash",
-   *   action: () => window.dispatchEvent(new CustomEvent("openRecycleBin")),
-   *   tooltip: "Open Recycle Bin",
-   * },
-   */
 ];
 
 /**
@@ -86,6 +67,7 @@ function createDesktopIcon(iconConfig) {
   // Add Material ripple effect
   const ripple = document.createElement("md-ripple");
   icon.appendChild(ripple);
+  ripple.attach(icon);
 
   // Add physics-inspired bobbing animation
   icon.classList.add("floating-icon");
@@ -188,9 +170,12 @@ function render(containerParam) {
   container = containerParam;
   container.innerHTML = "";
 
+  // Create wallpaper
+  const wallpaper = createWallpaper();
+
   // Create floating icon grid
   const iconGrid = createIconGrid();
-  container.appendChild(iconGrid);
+  wallpaper.appendChild(iconGrid);
 
   if (isQuit) {
     // Add Highest.txt file to the icon grid
@@ -204,9 +189,27 @@ function render(containerParam) {
     iconGrid.appendChild(icon);
   }
 
+  container.appendChild(wallpaper);
+
   // Create bottom app bar taskbar
   const taskbar = createTaskbar();
   container.appendChild(taskbar);
+
+  // Set positioning for overlay layering
+  container.style.position = "relative";
+  container.style.height = "100vh";
+  wallpaper.style.position = "relative";
+  wallpaper.style.top = "0";
+  wallpaper.style.left = "0";
+  wallpaper.style.width = "100%";
+  wallpaper.style.height = "100%";
+  wallpaper.style.zIndex = "1";
+  iconGrid.style.zIndex = "2";
+  taskbar.style.position = "fixed";
+  taskbar.style.bottom = "0";
+  taskbar.style.left = "0";
+  taskbar.style.width = "100%";
+  taskbar.style.zIndex = "3";
 
   // Setup clock update
   if (clockInterval) {

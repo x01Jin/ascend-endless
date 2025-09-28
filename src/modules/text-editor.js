@@ -28,14 +28,8 @@ function render(container) {
     ),
   ]);
 
-  // Toolbar with save button
-  const toolbar = createDiv("toolbar text-editor-toolbar", [
-    createButton("Save", handleSave, {
-      className: "toolbar-btn",
-      title: "Save File",
-      "aria-label": "Save File",
-    }),
-  ]);
+  // Toolbar
+  const toolbar = createDiv("toolbar text-editor-toolbar", []);
 
   // Main content area with textarea
   const mainArea = createDiv("text-editor-main", []);
@@ -54,14 +48,6 @@ function render(container) {
   windowDiv.appendChild(toolbar);
   windowDiv.appendChild(mainArea);
   container.appendChild(windowDiv);
-}
-
-function handleSave() {
-  window.dispatchEvent(
-    new CustomEvent("saveFile", {
-      detail: { file: currentFile, content },
-    })
-  );
 }
 
 function handleEvent(event) {

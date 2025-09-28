@@ -34,62 +34,6 @@ export function createElement(tag, props = {}, children = []) {
   return element;
 }
 
-/**
- * Appends a child element to a parent
- * @param {Element} parent - The parent element
- * @param {Element} child - The child element to append
- */
-export function appendChild(parent, child) {
-  parent.appendChild(child);
-}
-
-/**
- * Sets the text content of an element
- * @param {Element} element - The element to modify
- * @param {string} text - The text content
- */
-export function setText(element, text) {
-  element.textContent = text;
-}
-
-/**
- * Adds a CSS class to an element
- * @param {Element} element - The element to modify
- * @param {string} className - The class name to add
- */
-export function addClass(element, className) {
-  element.classList.add(className);
-}
-
-/**
- * Removes a CSS class from an element
- * @param {Element} element - The element to modify
- * @param {string} className - The class name to remove
- */
-export function removeClass(element, className) {
-  element.classList.remove(className);
-}
-
-/**
- * Adds an event listener to an element
- * @param {Element} element - The element to attach the listener to
- * @param {string} event - The event type
- * @param {Function} handler - The event handler function
- */
-export function addEventListener(element, event, handler) {
-  element.addEventListener(event, handler);
-}
-
-/**
- * Removes an event listener from an element
- * @param {Element} element - The element to remove the listener from
- * @param {string} event - The event type
- * @param {Function} handler - The event handler function
- */
-export function removeEventListener(element, event, handler) {
-  element.removeEventListener(event, handler);
-}
-
 // Factory functions for common components
 
 /**
@@ -110,25 +54,6 @@ export function createButton(text, onClick) {
  */
 export function createDiv(className, children = []) {
   return createElement("div", { className }, children);
-}
-
-/**
- * Creates a span element with text
- * @param {string} text - The text content
- * @returns {Element} The span element
- */
-export function createSpan(text) {
-  return createElement("span", {}, [text]);
-}
-
-/**
- * Creates an input element
- * @param {string} type - The input type
- * @param {string} placeholder - The placeholder text
- * @returns {Element} The input element
- */
-export function createInput(type, placeholder) {
-  return createElement("input", { type, placeholder });
 }
 
 // Standardized functions (no-op implementations)

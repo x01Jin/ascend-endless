@@ -1,36 +1,7 @@
 /* Material Design 3 Dark Theme - File Explorer Styles */
 /* Complete redesign with modern dark mode, responsive design, and accessibility */
 
-/* CSS Custom Properties for Material Design 3 Dark Palette */
-:root {
-  --md-sys-color-primary: #6750a4;
-  --md-sys-color-on-primary: #ffffff;
-  --md-sys-color-primary-container: #eaddff;
-  --md-sys-color-on-primary-container: #21005d;
-  --md-sys-color-secondary: #958da5;
-  --md-sys-color-on-secondary: #ffffff;
-  --md-sys-color-secondary-container: #2d2f42;
-  --md-sys-color-on-secondary-container: #e2dfff;
-  --md-sys-color-surface: #1c1b1f;
-  --md-sys-color-on-surface: #e6e1e5;
-  --md-sys-color-surface-variant: #49454f;
-  --md-sys-color-on-surface-variant: #cac4d0;
-  --md-sys-color-background: #0f0f0f;
-  --md-sys-color-on-background: #e6e1e5;
-  --md-sys-color-outline: #938f99;
-  --md-sys-color-error: #f2b8b5;
-  --md-sys-color-on-error: #601410;
-
-  /* Typography */
-  --md-ref-typeface-brand: "Inter", sans-serif;
-  --md-ref-typeface-plain: "Inter", sans-serif;
-
-  /* Motion */
-  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
-  --md-sys-motion-duration-short2: 100ms;
-  --md-sys-motion-duration-short3: 150ms;
-  --md-sys-motion-duration-short4: 200ms;
-}
+@import "variables.css";
 
 /* Breadcrumbs */
 .breadcrumbs {
@@ -163,18 +134,6 @@
 
 .toolbar button[data-action="up"]::after {
   content: "\f106"; /* arrow-up */
-}
-
-.toolbar button[data-action="refresh"]::after {
-  content: "\f021"; /* refresh */
-}
-
-.toolbar button[data-action="new-folder"]::after {
-  content: "\f07b"; /* folder */
-}
-
-.toolbar button[data-action="delete"]::after {
-  content: "\f1f8"; /* trash */
 }
 
 /* Title Bar */
@@ -339,11 +298,6 @@
   background-color: var(--md-sys-color-surface-variant);
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.content-card.drop-target {
-  border-color: var(--md-sys-color-primary);
-  box-shadow: 0 0 0 2px var(--md-sys-color-primary);
 }
 
 .content-card i {
