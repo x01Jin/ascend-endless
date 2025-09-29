@@ -1,12 +1,11 @@
-// UI module for the game
-// Provides DOM manipulation utilities and component factories
+// UI utilities for DOM manipulation and component creation
 
 /**
- * Creates a DOM element with properties and children
- * @param {string} tag - The HTML tag name
- * @param {object} props - Properties to set on the element
- * @param {Array} children - Child elements or text nodes
- * @returns {Element} The created DOM element
+ * Creates a DOM element.
+ * @param {string} tag - HTML tag name
+ * @param {object} props - Element properties
+ * @param {Array} children - Child elements or text
+ * @returns {Element} The DOM element
  */
 export function createElement(tag, props = {}, children = []) {
   const element = document.createElement(tag);
@@ -34,21 +33,63 @@ export function createElement(tag, props = {}, children = []) {
   return element;
 }
 
-// Factory functions for common components
-
+// Button factory
 /**
- * Creates a button element
- * @param {string} text - The button text
- * @param {Function} onClick - The click handler
- * @returns {Element} The button element
+ * Create a button.
+ * @param {string|object} textOrOptions
+ * @param {Function} onClick
+ * @returns {Element}
  */
-export function createButton(text, onClick) {
-  return createElement("button", { onClick }, [text]);
+export function createButton(textOrOptions, onClick) {
+  let buttonText = "";
+  let iconClass = null;
+  let buttonProps = {};
+
+  // Support two signatures: createButton(text, onClick) or createButton(options, onClick)
+  if (typeof textOrOptions === "string") {
+    buttonText = textOrOptions;
+    buttonProps.onClick = onClick;
+  } else if (typeof textOrOptions === "object" && textOrOptions !== null) {
+    const options = textOrOptions;
+    buttonText = options.text || "";
+    iconClass = options.icon || null;
+    buttonProps.onClick = onClick || options.onClick;
+
+    // Copy other option fields as attributes
+    Object.assign(buttonProps, options);
+
+    // Remove handled keys
+    delete buttonProps.text;
+    delete buttonProps.icon;
+  }
+
+  const children = [];
+
+  // Add icon if provided
+  if (iconClass) {
+    const icon = createElement("i", {
+      className: iconClass,
+      "aria-hidden": "true",
+    });
+    children.push(icon);
+
+    // Space between icon and text
+    if (buttonText) {
+      children.push(" ");
+    }
+  }
+
+  // Add text if specified
+  if (buttonText) {
+    children.push(buttonText);
+  }
+
+  return createElement("button", buttonProps, children);
 }
 
 /**
- * Creates a div element
- * @param {string} className - The CSS class name
+ * Creates a div element.
+ * @param {string} className - CSS class name
  * @param {Array} children - Child elements
  * @returns {Element} The div element
  */
@@ -56,27 +97,27 @@ export function createDiv(className, children = []) {
   return createElement("div", { className }, children);
 }
 
-// Standardized functions (no-op implementations)
+// Standardized functions (no-ops)
 
 /**
- * Initializes the UI module
- * @param {object} config - Configuration object
+ * Initializes the UI module.
+ * @param {object} config - Configuration
  */
 export function init(config) {
   // No-op
 }
 
 /**
- * Renders the UI to a container
- * @param {Element} container - The container element
+ * Renders the UI to a container.
+ * @param {Element} container - Container element
  */
 export function render(container) {
   // No-op
 }
 
 /**
- * Handles UI events
- * @param {Event} event - The event object
+ * Handles UI events.
+ * @param {Event} event - Event object
  */
 export function handleEvent(event) {
   // No-op

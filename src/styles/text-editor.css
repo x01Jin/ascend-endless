@@ -1,7 +1,7 @@
-/* Material Design 3 Dark Theme - Text Editor Styles */
+/* Text Editor Styles */
 /* Consistent dark theme with file explorer styling */
 
-@import "variables.css";
+@import "shared.css";
 
 /* Text Editor Window */
 .text-editor-window {
@@ -15,55 +15,12 @@
   height: 70vh;
   background-color: var(--md-sys-color-surface);
   border: 1px solid var(--md-sys-color-outline);
-  border-radius: 16px;
+  border-radius: 2px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(20px);
   z-index: 1000;
   overflow: hidden;
   animation: window-enter var(--md-sys-motion-duration-short4)
     var(--md-sys-motion-easing-standard);
-}
-
-/* Title Bar */
-.title-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 12px;
-  background-color: var(--md-sys-color-surface-variant);
-  border-bottom: 1px solid var(--md-sys-color-outline);
-  font-weight: 500;
-  font-size: 14px;
-  font-family: var(--md-ref-typeface-plain);
-  color: var(--md-sys-color-on-surface);
-  backdrop-filter: blur(20px);
-}
-
-.title-bar span {
-  flex-grow: 1;
-}
-
-.title-bar button {
-  background-color: var(--md-sys-color-error);
-  color: var(--md-sys-color-on-error);
-  border: none;
-  border-radius: 16px;
-  padding: 2px 8px;
-  cursor: pointer;
-  transition: all var(--md-sys-motion-duration-short2)
-    var(--md-sys-motion-easing-standard);
-  font-size: 12px;
-  font-weight: 500;
-  font-family: var(--md-ref-typeface-plain);
-  min-width: auto;
-  height: 30px;
-}
-
-.title-bar button:hover {
-  background-color: var(--md-sys-color-on-error);
-  color: var(--md-sys-color-error);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
 }
 
 /* Main Content Area */
@@ -115,11 +72,6 @@
     height: 80vh;
   }
 
-  .title-bar {
-    padding: 6px 10px;
-    font-size: 13px;
-  }
-
   .text-editor-toolbar {
     padding: 6px 10px;
     gap: 6px;
@@ -163,11 +115,6 @@
     border-radius: 0;
   }
 
-  .title-bar {
-    padding: 4px 8px;
-    font-size: 12px;
-  }
-
   .text-editor-toolbar {
     flex-wrap: wrap;
     padding: 4px 8px;
@@ -186,28 +133,6 @@
   }
 }
 
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
-  :root {
-    --md-sys-color-primary: #ffffff;
-    --md-sys-color-on-primary: #000000;
-    --md-sys-color-surface: #000000;
-    --md-sys-color-on-surface: #ffffff;
-    --md-sys-color-outline: #ffffff;
-  }
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
 /* Accessibility Enhancements */
 .toolbar-btn:focus-visible,
 .editor-textarea:focus-visible {
@@ -221,16 +146,4 @@
 
 .toolbar-btn[data-action="new"]::after {
   content: "\f044"; /* edit */
-}
-
-/* Window entrance animation */
-@keyframes window-enter {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
 }

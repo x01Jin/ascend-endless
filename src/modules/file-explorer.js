@@ -1,5 +1,5 @@
 // File Explorer module for the game
-// Overhauled with simplified Windows Explorer-like interface
+// Simplified Windows Explorer-like interface
 
 import { createElement, createDiv, createButton } from "./ui.js";
 
@@ -26,31 +26,16 @@ function render(container) {
   // Title bar
   const titleBar = createDiv("title-bar", [
     createElement("span", {}, [`File Explorer ${iteration}`]),
-    createButton("Close", () => {
+    createButton({ icon: "fas fa-times", "aria-label": "Close" }, () => {
       window.dispatchEvent(new CustomEvent("quit"));
     }),
   ]);
 
   // Toolbar
   const toolbarDiv = createDiv("toolbar file-explorer-toolbar", [
-    createButton("← Back", () => navigateBack(), {
-      className: "toolbar-btn",
-      "data-action": "back",
-      title: "Back",
-      "aria-label": "Back",
-    }),
-    createButton("→ Forward", () => navigateForward(), {
-      className: "toolbar-btn",
-      "data-action": "forward",
-      title: "Forward",
-      "aria-label": "Forward",
-    }),
-    createButton("↑ Up", () => navigateUp(), {
-      className: "toolbar-btn",
-      "data-action": "up",
-      title: "Up",
-      "aria-label": "Up",
-    }),
+    createToolbarButton("back", () => navigateBack(), "Back"),
+    createToolbarButton("forward", () => navigateForward(), "Forward"),
+    createToolbarButton("up", () => navigateUp(), "Up"),
   ]);
 
   // Breadcrumbs
@@ -96,11 +81,9 @@ function updateBreadcrumbs(container) {
   container.appendChild(rootLink);
 
   currentPath.forEach((segment, index) => {
-    const separator = createElement(
-      "span",
-      { className: "breadcrumb-separator" },
-      ["\uf105"]
-    ); // fa-chevron-right
+    const separator = createElement("i", {
+      className: "fas fa-chevron-right breadcrumb-separator",
+    });
     container.appendChild(separator);
 
     const link = createElement(
@@ -137,7 +120,7 @@ function renderContent(container) {
 
     const icon = createElement("i", {
       className:
-        item.type === "folder" ? "fas fa-folder fa-3x" : "fas fa-file fa-3x",
+        item.type === "folder" ? "fas fa-folder fa-4x" : "fas fa-file fa-4x",
     });
     card.appendChild(icon);
 
@@ -221,6 +204,36 @@ function openFile(file) {
     window.dispatchEvent(new CustomEvent("openTextFile", { detail: file }));
   } else if (file.name === "ascend.exe") {
     window.dispatchEvent(new CustomEvent("ascend"));
+  }
+}
+
+function createToolbarButton(action, onClick, ariaLabel) {
+  const button = createElement("button", {
+    className: "toolbar-btn",
+    "data-action": action,
+    title: ariaLabel,
+    "aria-label": ariaLabel,
+    onClick,
+  });
+
+  const icon = createElement("i", {
+    className: getToolbarIconClass(action),
+  });
+
+  button.appendChild(icon);
+  return button;
+}
+
+function getToolbarIconClass(action) {
+  switch (action) {
+    case "back":
+      return "fas fa-undo";
+    case "forward":
+      return "fas fa-redo";
+    case "up":
+      return "fas fa-level-up-alt";
+    default:
+      return "fas fa-question";
   }
 }
 

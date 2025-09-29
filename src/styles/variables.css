@@ -1,4 +1,4 @@
-/* Shared CSS Variables for Material Design 3 Dark Theme */
+/* Shared CSS Variables */
 /* Consolidated variables to eliminate duplication across CSS files */
 
 /* Import Fonts */
@@ -33,4 +33,38 @@
   --md-sys-motion-duration-short2: 100ms;
   --md-sys-motion-duration-short3: 150ms;
   --md-sys-motion-duration-short4: 200ms;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --md-sys-color-primary: #ffffff;
+    --md-sys-color-on-primary: #000000;
+    --md-sys-color-surface: #000000;
+    --md-sys-color-on-surface: #ffffff;
+    --md-sys-color-outline: #ffffff;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Window entrance animation */
+@keyframes window-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }

@@ -23,7 +23,7 @@ function render(container) {
     createElement("span", {}, [
       `Text Editor - ${currentFile.name || "Untitled"}`,
     ]),
-    createButton("Close", () =>
+    createButton({ icon: "fas fa-times", "aria-label": "Close" }, () =>
       window.dispatchEvent(new CustomEvent("closeEditor"))
     ),
   ]);

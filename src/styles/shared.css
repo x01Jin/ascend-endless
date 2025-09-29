@@ -1,0 +1,53 @@
+@import "variables.css";
+
+/* Shared styles for title bar */
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 4px;
+  background-color: var(--md-sys-color-on-secondary-container);
+  border-radius: 2px 2px 0 0;
+  margin-bottom: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--md-sys-color-outline);
+  border-bottom: none;
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.title-bar button {
+  background-color: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+  border: none;
+  border-radius: 2px;
+  padding: 2px 2px;
+  cursor: pointer;
+  transition: all var(--md-sys-motion-duration-short2)
+    var(--md-sys-motion-easing-standard);
+  font-size: 10px;
+  font-weight: 500;
+  font-family: var(--md-ref-typeface-plain);
+  min-width: auto;
+  height: 20px;
+  width: 20px;
+}
+
+@media (max-width: 768px) {
+  .file-explorer-window .title-bar {
+    padding: 2px 8px;
+    font-size: 12px;
+  }
+
+  .text-editor-window .title-bar {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-editor-window .title-bar {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
