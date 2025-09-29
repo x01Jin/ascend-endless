@@ -10,6 +10,7 @@ let isQuit = false;
 let container = null;
 let clockElement = null;
 let clockInterval = null;
+let gameState = null;
 
 // Desktop icons configuration with FontAwesome icons and actions
 const desktopIcons = [
@@ -27,7 +28,7 @@ const desktopIcons = [
  * @param {Object} config - Configuration object
  */
 function init(config) {
-  // Initialize with dependencies if needed
+  gameState = config.gameState;
 }
 
 /**
@@ -177,7 +178,7 @@ function render(containerParam) {
   const iconGrid = createIconGrid();
   wallpaper.appendChild(iconGrid);
 
-  if (isQuit) {
+  if ((gameState && gameState.getHighScore() > 0) || isQuit) {
     // Add Highest.txt file to the icon grid
     const highScoreIcon = {
       name: "Highest.txt",
