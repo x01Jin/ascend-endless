@@ -1,8 +1,8 @@
-import * as gameState from "./src/modules/game-state.js";
-import * as directoryGenerator from "./src/modules/directory-generator.js";
-import * as desktop from "./src/modules/desktop.js";
-import * as textEditor from "./src/modules/text-editor.js";
-import * as fileExplorer from "./src/modules/file-explorer.js";
+import * as gameState from "./modules/game-state.js";
+import * as directoryGenerator from "./modules/directory-generator.js";
+import * as desktop from "./modules/desktop.js";
+import * as textEditor from "./modules/text-editor.js";
+import * as fileExplorer from "./modules/file-explorer.js";
 
 const app = document.getElementById("app");
 

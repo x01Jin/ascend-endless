@@ -1,7 +1,13 @@
 # Ascend: The Endless File Explorer
 
 <div align="center">
-  <p><strong>A minimalist web-based game that turns file system navigation into a challenge of memory</strong></p>
+  <p><strong>A minimalist web-based concept that turns file system navigation into an exploration of memory</strong></p>
+
+  <p>
+    <a href="https://x01jin.github.io/ascend-endless/">
+      <img src="https://img.shields.io/badge/▶️%20Try%20it%20Out!-blue?style=for-the-badge" alt="Try it out!" />
+    </a>
+  </p>
 
   <p>
     <img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status">
@@ -16,44 +22,43 @@
 ## 📋 Table of Contents
 
 - [🎯 Overview](#-overview)
-- [🎮 Gameplay](#-gameplay)
+- [💡 Concept](#-concept)
 - [✨ Features](#-features)
 - [🚀 Quick Start](#-quick-start)
 - [📁 Project Structure](#-project-structure)
 - [🛠 Technology Stack](#-technology-stack)
 - [🔧 Development Setup](#-development-setup)
-- [🎯 Game Mechanics](#-game-mechanics)
+- [🧩 Concept Mechanics](#-concept-mechanics)
 - [🤝 Contributing](#-contributing)
-- [🔮 Future Enhancements](#-future-enhancements)
 - [👏 Acknowledgments](#-acknowledgments)
 
 ---
 
 ## 🎯 Overview
 
-**Ascend** is a unique minimalist web-based game that transforms the mundane task of file system navigation into an engaging psychological challenge. Players must dive into ever-expanding procedural directory trees, hunting for a single elusive file—**ascend.exe**.
+**Ascend** is a minimalist web-based concept that transforms file system navigation into an engaging memory exploration. Users navigate through procedurally generated directory trees of increasing complexity, searching for a hidden **ascend.exe** file to progress to the next level.
 
-What makes this game special is its ability to turn a simple interface into an increasingly complex mental challenge. Each successful ascent doesn't just increase the difficulty—it fundamentally changes how you perceive and interact with file systems. The game cleverly exploits our cognitive patterns, memory limitations, and navigation strategies, making each playthrough a unique psychological experiment.
+The concept explores spatial memory and navigation skills as each level creates deeper, more complex directory structures. Users must remember paths, avoid dead ends, and maintain focus to find the target file before the cognitive load becomes overwhelming.
 
 ---
 
-## 🎮 Gameplay
+## 💡 Concept
 
-### The Core Loop
+### The Core Experience
 
-1. **Initiation**: Begin on a simulated desktop with a single "File Explorer" icon
-2. **Exploration**: Navigate through procedurally generated directory structures
-3. **Discovery**: Search for the elusive **ascend.exe** file hidden within the tree
-4. **Ascension**: Execute the file to progress to the next iteration
-5. **Escalation**: Each level introduces larger, more complex directory structures
-6. **Persistence**: Track your highest iteration when you eventually exit
+1. **Start**: Begin on a desktop with a "File Explorer" icon
+2. **Navigate**: Click through procedurally generated folder structures
+3. **Search**: Look for the hidden **ascend.exe** file in the deepest level
+4. **Progress**: Execute the file to advance to the next iteration
+5. **Exploration**: Each level increases complexity with deeper nesting
+6. **Progress Tracking**: Track your highest iteration reached
 
 ### Key Interactions
 
-- **Directory Navigation**: Click folders to traverse deeper into the hierarchy
-- **File Interaction**: Double-click files to open them in appropriate viewers
-- **Text File Discovery**: Encounter procedurally generated content with cryptic messages
-- **Progress Tracking**: Automatic saving of your highest achieved iteration
+- **Folder Navigation**: Click folders to explore deeper levels
+- **File Discovery**: Double-click text files to read random content
+- **Progression**: Execute **ascend.exe** to advance to the next level
+- **Progress Tracking**: Automatic saving of your highest iteration
 
 ---
 
@@ -61,91 +66,89 @@ What makes this game special is its ability to turn a simple interface into an i
 
 ### 🎲 Procedural Generation
 
-- **Dynamic Directory Trees**: Each iteration creates unique file system structures
-- **Intelligent Scaling**: Complexity increases exponentially with each ascent
-- **Content Variety**: Text files contain randomly generated lore, hints, and nonsense
+- **Dynamic Directory Trees**: Each iteration creates unique file structures
+- **Scaling Complexity**: Depth and breadth increase with each level
+- **Random Content**: Text files contain procedurally generated content
+- **Hidden Target**: The **ascend.exe** file is randomly placed in deep folders
 
-### 💾 Persistence & State Management
+### 💾 Persistence
 
-- **Local Storage Integration**: Game state persists across browser sessions
-- **Achievement Tracking**: Automatic recording of highest iteration reached
-- **Graceful State Recovery**: Robust error handling for corrupted save data
+- **Local Storage**: progress persists across browser sessions
+- **Progress Tracking**: Records your highest iteration reached
+- **Graceful Recovery**: Handles corrupted save data
 
 ### 🎨 User Interface
 
-- **Clean Desktop Metaphor**: Familiar file explorer interface
-- **Modal Window System**: Layered interface for different contexts
-- **Responsive Design**: Adapts to various screen sizes
-- **Modern Typography**: Google Fonts integration for enhanced readability
+- **Desktop Metaphor**: Familiar file explorer interface
+- **Material Design 3**: Modern dark theme with custom styling
+- **Responsive Layout**: Adapts to different screen sizes
+- **Accessibility**: Keyboard navigation and screen reader support
 
-### 🔧 Technical Excellence
+### 🔧 Technical Features
 
-- **Framework-Free Architecture**: Pure vanilla JavaScript, HTML, and CSS
-- **ES6 Module System**: Modern JavaScript with clean separation of concerns
-- **Event-Driven Architecture**: Custom event system for component communication
-- **Memory Efficient**: Optimized performance for complex directory structures
+- **Vanilla JavaScript**: No external frameworks required
+- **ES6 Modules**: Clean code organization and separation
+- **Event-Driven**: Custom event system for component communication
+- **Lightweight**: Optimized for fast loading and smooth performance
 
 ---
 
 ## 🚀 Quick Start
 
-### Option 1: Local Development Server
+### Running the Concept
+
+#### Option 1: Local Server (Recommended)
 
 ```bash
-# Using Python (recommended)
+# Using Python
 python -m http.server 8000
-# Navigate to http://localhost:8000
+# Then open http://localhost:8000
 
-# Using Node.js (if available)
+# Using Node.js
 npx serve .
-# Or
-npm run dev
 ```
 
-### Option 2: Direct File Access
+#### Option 2: Live Deployment
 
-Simply open `index.html` in your web browser. The game runs entirely in the browser with no server requirements.
+Deploy to any static hosting service:
 
-### Option 3: Live Deployment
-
-The game is designed to work on static hosting platforms:
-
-- **GitHub Pages**: Perfect compatibility
-- **Netlify**: Zero-configuration deployment
-- **Vercel**: Instant deployment
-- **Any static host**: No build process required
+- **GitHub Pages**: Direct deployment support
+- **Netlify**: Drag and drop deployment
+- **Vercel**: Zero configuration required
 
 ---
 
 ## 📁 Project Structure
 
-```structure
+```directory
 ascend/
-├── index.html          # Main HTML entry point
-├── main.js             # Application bootstrap and event coordination
-├── README.md           # This file
-├── plan/               # Development planning documents
-│   └── plan.md         # Project roadmap and specifications
-└── src/                # Source code organization
-    ├── modules/                     # Core game logic modules
-    │   ├── desktop.js               # Desktop interface management
-    │   ├── directory-generator.js   # Procedural directory creation
-    │   ├── file-explorer.js         # File system navigation UI
-    │   ├── game-state.js            # Game state and persistence
-    │   ├── text-editor.js           # Text file viewing/editing
-    │   └── ui.js                    # Shared UI components
-    └── styles/                      # CSS styling organization
-        ├── desktop.css              # Desktop interface styles
-        ├── file-explorer.css        # File explorer styling
-        └── text-editor.css          # Text editor appearance
+├── index.html              # Main HTML entry point
+├── README.md               # This documentation
+├── LICENSE                 # MIT license file
+├── .gitignore              # Git ignore patterns
+└── src/                    # Source code modules
+    ├── main.js                 # Application bootstrap and coordination
+    ├── modules/                # Core game logic
+    │   ├── desktop.js                # Desktop interface management
+    │   ├── directory-generator.js    # Procedural directory creation
+    │   ├── file-explorer.js          # File system navigation UI
+    │   ├── game-state.js             # Game state and persistence
+    │   ├── text-editor.js            # Text file viewer
+    │   ├── ui.js                     # Shared UI components
+    │   └── wallpaper.js              # Desktop background
+    └── styles/                       # Styling and themes
+        ├── variables.css             # Material Design 3 color variables
+        ├── desktop.css               # Desktop interface styles
+        ├── file-explorer.css         # File explorer styling
+        └── text-editor.css           # Text editor appearance
 ```
 
-### Architecture Highlights
+### Architecture
 
-- **Modular Design**: Each module handles a specific aspect of the game
-- **Event-Driven Communication**: Components communicate through custom events
-- **Separation of Concerns**: Clear boundaries between UI, logic, and state
-- **Extensible Structure**: Easy to add new features or modify existing ones
+- **Modular Design**: Each module handles a specific game aspect
+- **Event Communication**: Components communicate via custom events
+- **Clean Separation**: UI, logic, and state management are distinct
+- **Maintainable**: Easy to extend and modify
 
 ---
 
@@ -153,158 +156,129 @@ ascend/
 
 ### Core Technologies
 
-- **HTML5**: Semantic markup with modern standards
-- **CSS3**: Advanced styling with flexbox and grid
-- **Vanilla ES6 JavaScript**: Modern JavaScript without frameworks
+- **HTML5**: Modern semantic markup
+- **CSS3**: Custom Material Design 3 implementation with CSS variables
+- **Vanilla ES6 JavaScript**: Pure JavaScript without frameworks
 
-### External Dependencies
+### External Resources
 
-- **Bootstrap 5.3.8**: Utility-first CSS framework for responsive design
-- **Material Web Components**: Google's material design component library
-- **Font Awesome 6.4.0**: Icon library for enhanced UI elements
-- **Google Fonts**: Inter and Roboto Mono for improved typography
-- **Prism.js**: Syntax highlighting for code content in text files
+- **Font Awesome 6.4.0**: Icons for UI elements
+- **Google Fonts**: Inter font family for typography
+- **Material Design 3**: Color system and design tokens (custom implementation)
+
+### Dependencies
+
+The project uses **no build process** and minimal external dependencies. All styling is custom CSS implementing Material Design 3 principles.
 
 ---
 
 ## 🔧 Development Setup
 
-### Prerequisites
+### Requirements
 
 - Modern web browser (Chrome, Firefox, Safari, Edge)
-- Local web server (optional but recommended)
 - Text editor or IDE
+- Optional: Local web server for development
 
-### Getting Started (Development)
+### Getting Started
 
 1. **Clone or download** the project files
-2. **Start a local server**:
+2. **Start a local server** (optional but recommended):
 
    ```bash
    # Python 3
    python -m http.server 8000
 
-   # Python 2
-   python -m SimpleHTTPServer 8000
-
-   # Node.js
+   # Node.js (if available)
    npx serve .
    ```
 
-3. **Open browser** and navigate to `http://localhost:8000`
-4. **Start developing** - all changes are reflected immediately
+3. **Open browser** to `http://localhost:8000` or open `index.html` directly
+4. **Start exploring** - It runs entirely in the browser
 
-### Development Tools
+### Development Notes
 
-- **Live Server**: VS Code extension for automatic reloading
-- **Browser DevTools**: For debugging and performance analysis
-- **Local Storage Inspector**: To examine game state persistence
+- All changes are reflected immediately (no build process)
+- Use browser DevTools for debugging
+- Check localStorage to inspect game state
+- All source code is in the `src/` directory
 
 ---
 
-## 🎯 Game Mechanics
+## 🧩 Concept Mechanics
 
-### Procedural Generation Algorithm
+### Procedural Generation
 
-The directory generation system uses a sophisticated algorithm that:
+The directory generation algorithm:
 
-- **Scales Complexity**: Each iteration increases depth and branching factor
-- **Maintains Playability**: Ensures the target file is always reachable
-- **Generates Variety**: Creates unique structures each time
-- **Balances Challenge**: Gradually increases difficulty without frustration
+- **Increases Depth**: Each level adds more nested folders
+- **Random Structure**: Creates varied branching patterns
+- **Guaranteed Solution**: The **ascend.exe** file is always reachable
+- **Balanced Exploration**: Gradually increases difficulty
 
 ### State Management
 
-- **Persistent Storage**: Uses browser localStorage API
-- **Graceful Degradation**: Handles corrupted or missing save data
-- **Real-time Updates**: Immediate saving of progress
-- **Cross-session Continuity**: Maintains progress across browser restarts
+- **Browser Storage**: Uses localStorage API for persistence
+- **Real-time Saving**: Progress saved immediately on ascension
+- **Error Handling**: Graceful recovery from corrupted data
+- **Cross-session**: Maintains progress across browser restarts
 
 ### Event System
 
-The application uses a custom event-driven architecture:
+Custom event-driven architecture:
 
-- **Window Events**: Coordinate between different UI layers
-- **State Events**: Trigger game logic updates
-- **UI Events**: Handle user interactions
-- **Error Events**: Manage exception handling gracefully
+- **Navigation Events**: Handle folder traversal
+- **Concept Events**: Manage level progression
+- **UI Events**: Coordinate interface updates
+- **State Events**: Trigger concept logic changes
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Here's how you can help:
+Contributions are welcome for improvement!
 
-### Getting Started
+### How to Contribute
 
 1. **Fork** the repository
-2. **Clone** your fork locally
-3. **Create** a feature branch: `git checkout -b feature/amazing-feature`
-4. **Make** your changes
-5. **Test** thoroughly
-6. **Commit** your changes: `git commit -m 'Add amazing feature'`
-7. **Push** to the branch: `git push origin feature/amazing-feature`
-8. **Open** a Pull Request
+2. **Create** a feature branch
+3. **Make** your improvements
+4. **Test** thoroughly
+5. **Submit** a pull request
 
-### Contribution Guidelines
+### Contribution Ideas
 
-- **Code Style**: Follow existing patterns and conventions
-- **Testing**: Ensure new features don't break existing functionality
-- **Documentation**: Update README and comments as needed
-- **Performance**: Consider the impact on game performance
-- **Accessibility**: Maintain keyboard navigation support
+- **New Features**: Additional game modes or mechanics
+- **UI Polish**: Visual improvements and animations
+- **Performance**: Optimization for larger directory trees
+- **Accessibility**: Enhanced screen reader support
+- **Mobile**: Touch-friendly interface improvements
+- **Content**: More varied text file content
 
-### Areas for Contribution
+### Guidelines
 
-- **New Game Modes**: Alternative challenge types
-- **UI Enhancements**: Visual improvements and polish
-- **Performance Optimizations**: Faster directory generation
-- **Accessibility Features**: Better support for screen readers
-- **Mobile Responsiveness**: Touch-friendly interface
-- **Additional Content**: More varied text file content
-
----
-
-## 🔮 Future Enhancements
-
-### Technical Improvements
-
-- **Service Worker**: Offline functionality
-- **Progressive Web App**: Install as native app
-- **Performance Monitoring**: Built-in analytics
-- **Code Splitting**: Lazy loading for faster initial load
-- **TypeScript Migration**: Enhanced type safety
-
-### Content Expansion
-
-- **More File Types**: Images, audio, and other media files
-- **Rich Text Content**: Markdown and formatted text support
-- **Interactive Elements**: Clickable links and embedded content
-- **Dynamic Content**: Context-aware file generation
+- Follow existing code patterns and style
+- Test new features don't break existing functionality
+- Update documentation for significant changes
+- Consider performance impact of additions
 
 ---
 
 ## 👏 Acknowledgments
 
-### Technologies & Libraries
+### Resources Used
 
-- **Bootstrap**: For the responsive design system
-- **Material Web Components**: For enhanced UI elements
-- **Font Awesome**: For the beautiful iconography
-- **Google Fonts**: For the typography
-- **Prism.js**: For syntax highlighting
+- **Font Awesome**: Beautiful icons for the interface
+- **Google Fonts**: Inter typeface for improved readability
+- **Material Design 3**: Design system inspiration and color tokens
 
-### Inspiration
+### Design Philosophy
 
-This project draws inspiration from classic minimalist games and experimental software that challenge our relationship with technology interfaces.
-
-### Development Philosophy
-
-Built with the belief that sometimes the most engaging experiences come from the simplest mechanics, carefully crafted and refined.
+Built with the principle that engaging experiences can emerge from simple mechanics, carefully crafted and thoughtfully implemented.
 
 ---
 
 <div align="center">
-  <p><strong>Ready to get lost in the endless directories?</strong></p>
-  <p>🌟 <a href="#-quick-start">Get Started</a> | 📖 <a href="#-gameplay">Learn to Play</a> | 🤝 <a href="#-contributing">Contribute</a></p>
+  <p><strong>Ready to test your file system navigation skills?</strong></p>
+  <p>🌟 <a href="#-quick-start">Get Started</a> | 📖 <a href="#-concept">Learn to Explore</a> | 🤝 <a href="#-contributing">Contribute</a></p>
 </div>
