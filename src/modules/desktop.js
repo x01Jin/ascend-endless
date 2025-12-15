@@ -5,6 +5,7 @@
 
 import { createDiv } from "./ui.js";
 import { createWallpaper } from "./wallpaper.js";
+import * as clicker from "../eggs/clicker/index.js";
 
 let isQuit = false;
 let container = null;
@@ -124,7 +125,7 @@ function createTaskbar() {
   startIcon.className = "fab fa-windows start-icon";
   startIcon.setAttribute("aria-label", "Start Button");
   startIcon.addEventListener("click", () => {
-    // Start button click handler - placeholder for future functionality
+    clicker.toggle();
   });
   taskbar.appendChild(startIcon);
 
